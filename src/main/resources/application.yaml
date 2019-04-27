@@ -1,0 +1,39 @@
+#datasource
+spring:
+  application:
+    name: daybreak
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.0.0.73:33306/test02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=true
+    username: test02
+    password: test02
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+      minimum-idle: 10
+      maximum-pool-size: 65
+      pool-name: daybreakDatabasePool
+      leak-detection-threshold: 5000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
+
+  redis:
+    host: 10.0.0.15
+    database: 7
+
+  cache:
+    type: redis
+
+#   port
+server:
+  port: 80
+logging:
+  level:
+    cn.failbatter: trace
+
+
